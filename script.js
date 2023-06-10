@@ -35,18 +35,20 @@ function randomTime() {
   let x = Promise.all(prom);
   
    x.then((data) => {
+	let loading=document.getElementById("loading");
+	loading.style.display="none";
 	let tbody=document.getElementById("output");
 	for(let i=0;i<data.length;i++){
 	let inner=document.createElement("tr");
 	inner.innerHTML=`<td>${data[i].promise}</td>
-					 <td class="time">${data[i].time}</td>`;
+					 <td class="time">${(data[i].time/1000).toFixed(0)}</td>`;
 	tbody.append(inner);				 
 	}
 	let time=document.getElementsByClassName("time");
 	console.log(time);
 	  let sum=0;
-	  for(let i=0;i<time.length;i++){
-		  sum+=Number(time[i].innerText);
+	  for(let i=0;i<data.length;i++){
+		  sum+=(data[i].time)/1000
 	  }
 	  let inner=document.createElement("tr");
 	  inner.innerHTML=`<td>Total</td>
