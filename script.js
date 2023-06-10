@@ -34,12 +34,22 @@ function randomTime() {
   let prom = [prom1, prom2, prom3];
   let x = Promise.all(prom);
   
-  x.then((data) => {
+   x.then((data) => {
 	let tbody=document.getElementById("output");
 	for(let i=0;i<data.length;i++){
 	let inner=document.createElement("tr");
 	inner.innerHTML=`<td>${data[i].promise}</td>
-					 <td>${data[i].time}</td>`;
+					 <td class="time">${data[i].time}</td>`;
 	tbody.append(inner);				 
 	}
+	let time=document.getElementsByClassName("time");
+	console.log(time);
+	  let sum=0;
+	  for(let i=0;i<time.length;i++){
+		  sum+=Number(time[i].innerText);
+	  }
+	  let inner=document.createElement("tr");
+	  inner.innerHTML=`<td>Total</td>
+					 <td class="time">${sum}</td>`;
+	  tbody.append(inner);
   });
