@@ -10,7 +10,7 @@ function randomTime() {
 	  const endTime = new Date().getTime();
 	  const elapsedTime = endTime - startTime;
 	  resolve({ promise: "Promise 1", time: elapsedTime });
-	}, randomTime());
+	}, 1000);
   });
   
   let prom2 = new Promise((resolve) => {
@@ -19,16 +19,16 @@ function randomTime() {
 	  const endTime = new Date().getTime();
 	  const elapsedTime = endTime - startTime;
 	  resolve({ promise: "Promise 2", time: elapsedTime });
-	}, randomTime());
+	}, 2000);
   });
-  
+
   let prom3 = new Promise((resolve) => {
 	const startTime = new Date().getTime();
 	setTimeout(() => {
 	  const endTime = new Date().getTime();
 	  const elapsedTime = endTime - startTime;
 	  resolve({ promise: "Promise 3", time: elapsedTime });
-	}, randomTime());
+	}, 3000);
   });
   
   let prom = [prom1, prom2, prom3];
