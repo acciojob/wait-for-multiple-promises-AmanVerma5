@@ -36,7 +36,7 @@ function randomTime() {
 
    x.then((data) => {
 	let loading=document.getElementById("loading");
-	loading.style.display="none";
+	loading.remove();
 	let tbody=document.getElementById("output");
 	for(let i=0;i<data.length;i++){
 	let inner=document.createElement("tr");
