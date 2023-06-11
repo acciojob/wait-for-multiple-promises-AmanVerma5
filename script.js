@@ -1,6 +1,6 @@
 //your JS code here. If required.
 function randomTime() {
-	let time = Math.random() * 2 + 1;
+	let time = Math.random() * 1 + 1;
 	return time * 1000;
   }
   
@@ -10,7 +10,7 @@ function randomTime() {
 	  const endTime = new Date().getTime();
 	  const elapsedTime = endTime - startTime;
 	  resolve({ promise: "Promise 1", time: elapsedTime });
-	}, randomTime());
+	}, 1000);
   });
   
   let prom2 = new Promise((resolve) => {
@@ -19,7 +19,7 @@ function randomTime() {
 	  const endTime = new Date().getTime();
 	  const elapsedTime = endTime - startTime;
 	  resolve({ promise: "Promise 2", time: elapsedTime });
-	}, randomTime());
+	}, 1000);
   });
 
   let prom3 = new Promise((resolve) => {
